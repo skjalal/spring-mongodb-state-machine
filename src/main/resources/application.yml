@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-mongodb-state-machine
+  profiles:
+    active: local
+  jackson:
+    default-property-inclusion: non_null
+server:
+  shutdown: graceful
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/payment-state-machine
+      database: payment-state-machine
